@@ -9,6 +9,10 @@ If you have Node.js already installed you can just:
 
 `$ npm install -g bower gulp` to get the packges.
 
+then navigate to the local directory and do:
+
+`$ npm install`
+`$ bower install`
 
 Once downloaded, to build locally and watch, navigate to the root project folder and:
 
@@ -19,3 +23,5 @@ This will serve it on your local ip so that you can view it from any device in y
 To build an optimized version:
 
 `$ gulp`
+
+The actual application source is in the `src` folder.

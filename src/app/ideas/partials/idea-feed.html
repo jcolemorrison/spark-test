@@ -1,0 +1,31 @@
+<section class="idea-feed-container">
+
+	<!-- header -->
+	<h3 class="idea-feed-header">Ideas</h3>
+
+	<!-- idea form -->
+	<idea-form ng-class="{ 'toggle': ideasCtrl.mobileForm }"></idea-form>
+	<!-- /idea form -->
+
+	<!-- idea objects loop -->
+	<ul class="idea-list">
+		
+		<li ng-repeat="idea in ideas | orderBy: 'loved.total' | ideaFeedFilter:ideasCtrl.filterBy">
+
+			<!-- single idea directive -->
+			<idea-item></idea-item>
+
+		</li>
+
+	</ul>
+	<!-- /idea objects loop -->
+
+	<!-- mobile toggle -->
+	<button
+		ng-click="ideasCtrl.mobileForm = !ideasCtrl.mobileForm"
+		ng-class="{ 'toggle': ideasCtrl.mobileForm }"
+		class="mobile-form-toggle button">
+		<i class="fa fa-plus"></i>
+	</button>
+	<!-- /mobile toggle -->
+</section>

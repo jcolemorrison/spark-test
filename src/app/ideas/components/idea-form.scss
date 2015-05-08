@@ -1,0 +1,196 @@
+/**
+ * Styles for the idea form directive
+ */
+
+.idea-form{
+	padding-left: rem-calc(55);
+	position: relative;
+	margin-bottom: rem-calc(30);
+	.user-image{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+	}
+
+	.form-fields{
+		// overflow: hidden;
+		width: 100%;
+	}
+
+	#ideaTitle,
+	#ideaText{
+		border-color: $ppl-gray;
+		box-shadow: none;
+		font-size: rem-calc(18);
+		font-weight: 300;
+		&::placeholder{
+
+		}
+	}
+
+	// yes, yes ids are bad, but so are
+	// superfluous classes and tag selectors...
+	#ideaTitle{
+		height: rem-calc(40);
+		margin-bottom: -1px;
+		border-radius: 2px 2px 0 0;
+
+	}
+	
+	// idea text area
+	#ideaText{
+		height: rem-calc(130);
+		margin-bottom: 0;
+	}
+
+	// the form footer
+	.form-footer{
+		border: 1px solid $ppl-gray;
+		padding: 8px;
+		background-color: $vapor;
+		&.row{ // weird .row .row negative margin from zurb
+			margin: -1px 0 0 0;
+		}
+
+		// since zurb doesn't care about vertical align
+		.share-with,
+		.share-anon{
+			font-size: rem-calc(14);
+			
+		}
+
+		.share-with{
+			margin-top: rem-calc(10);
+			span{
+				color: $body-font-color;
+			}
+		}
+
+		.share-anon{
+			margin-top: rem-calc(10);
+
+			// container around the switch
+			.switch.round{
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 0 0 rem-calc(6);
+				overflow: visible;
+			
+				// the switch bar
+				label{
+					height: rem-calc(14);
+					width: rem-calc(30);
+					// the actual switch itself
+					&::after{
+						left: rem-calc(-3);
+						top: rem-calc(-3);
+						height: rem-calc(20);
+						width: rem-calc(20);
+						background-color: $ppl-blue;
+					}
+
+				}
+				
+				// what the switch bar
+				// looks like when it's
+				// active
+				& input:checked + label{
+					background-color: #88B7E4;
+
+					// the dwithc itself afterwards
+					&::after{
+						background-color: $ppl-blue-dark;
+						box-shadow: 0px 0px 4px $ppl-blue;
+						left: rem-calc(14);
+					}
+				}
+			}
+		}
+
+		.columns{
+			box-sizing: border-box;
+			display: inline-block;
+			vertical-align: middle;
+			&:last-child{
+				padding: 0;
+			}
+		}
+	}
+
+		// share dropdown
+		#dropdown-locations{
+			li{
+				padding: rem-calc(10);
+			}
+		}
+
+	// share idea button
+	.idea-share{
+		background-color: $ppl-orange;
+		padding: rem-calc(12) 0;
+		width: 100%;
+		margin-bottom: 0;
+		text-align: center;
+		img{
+			height: 18px;
+			width: auto;
+			margin-right: rem-calc(8);
+		}
+	}
+}
+
+// tablet!
+@media (max-width: 1400px) {
+	.idea-form{
+		.idea-share {
+			margin-top: rem-calc(16);
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+	.idea-form{
+		.share-with{
+			width: 40%;
+		}
+		.share-anon{
+			width: 60%;
+		}
+	}
+}
+
+// for mobile less than 500
+@media (max-width: 500px) {
+	.idea-form{
+		padding: rem-calc(20);
+		position: fixed;
+		background-color: white;
+		box-shadow: 0px 0px 4px $base;
+		width: 100%;
+		top: 100%;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		@include single-transition();
+
+		&.toggle{
+			top: 0;
+		}
+
+
+		.user-image{
+			display: none;
+		}
+		
+		.share-with,
+		.share-anon{
+			width: 100%;
+		}
+
+		#ideaTitle,
+		#ideaText{
+			font-size: rem-calc(16);
+		}
+	}
+}

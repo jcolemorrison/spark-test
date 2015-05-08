@@ -1,0 +1,79 @@
+<div class="idea-item">
+
+	<!-- author image -->
+	<figure
+		ng-if="idea.author.image"
+		style="background-image: url({{idea.author.image}})"
+		class="user-image"></figure>
+
+	<!-- if no author image -->
+	<figure
+		ng-if="!idea.author.image"
+		class="user-image no-image"
+		>
+		<i class="fa fa-user fa-2x"></i>
+	</figure>
+
+	<!-- mobile time... -->
+	<div class="mobile-idea-time">
+		<i class="fa fa-clock-o"></i>{{idea.date | amTimeAgo}}
+	</div>
+
+	<!-- idea title -->
+	<h1 class="idea-title">{{idea.title}}</h1>
+	
+	<!-- idea meta -->
+	<p class="idea-meta-info">
+		<span class="idea-time">
+			{{idea.date | amTimeAgo}}
+		</span>
+		<span
+			ng-class="{'mobile-align': !idea.author.title }"
+			class="idea-author">by: {{idea.author.name}}</span>
+		<span ng-if="idea.author.title"> - {{idea.author.title}}, {{idea.location | uppercase}}</span>
+	</p>
+	<!-- /idea meta -->
+
+	<!-- idea description -->
+	<section
+		ng-class="{'expand': item.expand}"
+		class="idea-description">
+		{{ideaText}}
+		<!-- mobile more toggle -->
+		<div class="idea-description-more">more</div>
+	</section>
+
+	<!-- idea social -->
+	<aside class="idea-social">
+		
+		<div class="love-action">
+			<!-- love it button -->
+			<button
+				ng-show="!idea.loved.currentUser"
+				ng-click="loveIt()"
+				tooltip="Love this idea"
+				tooltip-trigger="mouseenter"
+				tooltip-animation="false"
+				class="idea-love-it button small radius">
+				<i class="fa fa-heart fa-lg"></i> {{idea.loved.total}}
+			</button>
+			
+			<!-- loved button -->
+			<button
+				ng-show="idea.loved.currentUser"
+				tooltip="Loved"
+				tooltip-trigger="mouseenter"
+				tooltip-animation="false"
+				class="idea-loved-it button small radius">
+				Loved!
+			</button>
+		</div>
+
+
+		<!-- comment count -->
+		<div class="idea-comments">
+			<i class="fa fa-comment"></i> {{idea.commentCount}}
+		</div>
+
+	</aside>
+</div>

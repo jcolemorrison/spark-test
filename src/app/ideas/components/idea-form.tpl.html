@@ -1,0 +1,67 @@
+<form
+	class="idea-form"
+	name="ideaForm"
+	ng-submit="submit(ideaForm.$valid)">
+
+	<!-- current user image -->
+	<figure 
+		style="background-image: url({{currentUser.image}})"
+		class="user-image"></figure>
+	<!-- /current user image -->
+	
+	<div class="form-fields">
+
+		<!-- title -->
+		<input
+			type="text"
+			name="ideaTitle"
+			id="ideaTitle"
+			ng-model="idea.title"
+			required
+			placeholder="Title of your Great Idea...">
+
+		<!-- thoughts -->
+		<textarea
+			ng-model="idea.description"
+			name="ideaText"
+			id="ideaText"
+			placeholder="Add more details (optional)..."></textarea>
+
+		<div class="row full-width form-footer">
+			<div class="xlarge-4 large-6 small-6 columns share-with">
+
+				<!-- share with option -->
+				<a dropdown-toggle="#dropdown-locations" data-options="align:right"><span>Share With:</span> &nbsp;{{idea.location.name}}&nbsp; <i class="fa fa-chevron-down"></i></a>
+				<ul id="dropdown-locations" class="f-dropdown">
+					<li ng-click="getLocation()">All</li>
+					<li
+						ng-click="getLocation(location)"
+						ng-repeat="location in locations">
+						{{location.name}}
+					</li>
+				</ul>
+			</div>
+
+			<!-- Anon? -->
+			<div class="xlarge-5 large-6 medium-5 small-6 columns share-anon">
+				Share anonymously
+				<div class="switch round small">
+					<input
+						ng-model="idea.anon"
+						id="exampleRadioSwitch3"
+						type="checkbox"
+						name="testGroup">
+					<label for="exampleRadioSwitch3"></label>
+				</div>
+			</div>
+
+			<!-- SHARE IT -->
+			<div class="xlarge-3 columns">
+				<button type="submit" id="shareIdea" class="button small radius idea-share">
+					<img src="assets/images/bolt-icon.png" alt="">SHARE IDEA
+				</button>
+			</div>
+
+		</div>
+	</div>
+</form>

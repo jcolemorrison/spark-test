@@ -1,0 +1,59 @@
+<nav class="sticky">
+	<!-- top navigation directive -->
+	<top-bar class="spark-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1>
+					<a id="peoplespark-nav-logo" href="#">
+						<img src="assets/images/peoplespark-logo.png" alt="">
+					</a>
+				</h1>
+			</li>
+			<li toggle-top-bar class="menu-toggle">
+				<a href="#">
+					<i class="fa fa-bars"></i>
+				</a>
+			</li>
+		</ul>
+
+		<top-bar-section>
+			<!-- Right Nav Section -->
+			<ul class="right">
+				<li has-dropdown>
+					<!-- output user name and picture -->
+					<a class="current-user" href="#">
+						<figure 
+							class="user-image"
+							style="background-image: url({{currentUser.image}});"
+							></figure>
+						<span class="user-name">{{currentUser.name}}</span>
+						<span class="user-icon">
+							<i class="fa fa-chevron-down"></i>
+						</span>
+					</a>
+					<ul top-bar-dropdown>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+
+			<!-- Left Nav Section -->
+			<ul class="left">
+				<li class="active">
+					<a href="#">Ideas</a>
+				</li>
+				<li>
+					<a href="#">Feedback</a>
+				</li>
+				<li>
+					<a href="#">Reports</a>
+				</li>
+				<li>
+					<a href="#">Set up</a>
+				</li>
+			</ul>
+		</top-bar-section>
+	</top-bar>
+	<!-- /top navigation directive -->
+</nav>

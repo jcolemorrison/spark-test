@@ -1,0 +1,93 @@
+/**
+ * Styles specific to the idea filters pane and template
+ */
+
+.idea-filters{
+	background-color: $vapor;
+	overflow: hidden;
+
+	h6{
+		margin: rem-calc(48) 0 rem-calc(20) 0;
+	}
+
+	.status-filters,
+	.order-filters{
+		list-style-type: none;
+		font-family: $font-family-roboto;
+		margin: 0;
+		li {
+			font-size: rem-calc(16);
+			margin-bottom: rem-calc(10);
+			&:last-child{
+				margin-bottom: 0;
+			}
+			input{
+				margin: 0 rem-calc(10) 0 0;
+			}
+			label {
+				color: $monsoon;
+			}
+		}
+		.status-count{
+			float: right;
+			font-size: rem-calc(14);
+			color: darken($base, 10%);
+			margin-top: rem-calc(1);
+		}
+	}
+
+	// toggle link to show filters on mobile
+	.mobile-filters-toggle{
+		cursor: pointer;
+		margin: 0;
+		padding: rem-calc(12) rem-calc(15) 0 4%;
+		color: $base;
+		display: none;
+		i {
+			@include single-transition();
+		}
+		&.toggle{
+			i{
+				display: inline-block;
+				@include rotate(-180deg);
+			}
+		}
+	}
+}
+
+// make the columns show horizontally for tablets
+@media (min-width: 500px) and (max-width: 768px) {
+	.idea-filters {
+		.row {
+			.columns {
+				width: 48%;
+			}
+		}
+		.status-filters,
+		.order-filters{
+			margin-bottom: rem-calc(20);
+		}
+	}
+}
+
+// for tablets and lower
+@media (max-width: 768px) {
+	.idea-filters {
+		
+		.row .columns {
+			padding: 0 4%;
+		}
+
+		h6{
+			margin-top: rem-calc(20);
+		}
+		.order-filters{
+			margin-bottom: rem-calc(20);
+		}
+
+		// show the toggle!
+		.mobile-filters-toggle{
+			display: block;
+		}
+	}
+}

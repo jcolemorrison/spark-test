@@ -1,0 +1,51 @@
+/**
+ * Globally used Extends, Mixins, and Styles
+ */
+
+// For making background images cover properly
+%background-cover{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+
+// creates a circle image that centers
+// any size image correctly
+@mixin circle-image($size:40px) {
+	@extend %background-cover;
+	width: $size;
+	height: $size;
+	border-radius: 100%;
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees); // IE9 only
+       -o-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+.user-image{
+	margin: 0;
+	@include circle-image();
+	background-color: $smoke;
+	overflow: hidden;
+	i{
+		color: $base;
+		margin-left: rem-calc(-12.5);
+		position: absolute;
+		bottom: rem-calc(-3);
+		left: 50%;
+		display: none;
+	}
+	&.no-image i{
+		display: block;
+	}
+}

@@ -1,0 +1,91 @@
+/**
+ * Styles for the overall Ideas layout (main.html)
+ */
+
+.ideas-container{
+	width: 100%;
+	position: relative;
+	background-color: $vapor;
+	max-width: 1900px;
+	margin: 0 auto;
+	
+	// temp debug
+	.idea-feed,
+	.idea-meta,
+	.idea-filters{
+		// border: 1px solid $ppl-blue-dark;
+		box-sizing: border-box;
+	}
+
+	// top level layout (so we aren't going between files)
+	.idea-filters{
+		position: fixed;
+		width: rem-calc(279);
+		z-index: 1;
+		@include single-transition();
+	}
+
+	.idea-feed{
+		padding-left: rem-calc(279);
+	}
+}
+
+// adjust the filters sidebar to line up with the 
+// navbar logo
+@media (min-width: 768px) and (max-width: 1200px) {
+	.ideas-container{
+		.idea-feed{
+			padding-left: rem-calc(220);
+		}
+		.idea-filters{
+			width: rem-calc(220);
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.ideas-container{
+		.idea-meta{
+			padding-left: rem-calc(220);
+		}
+	}
+}
+
+// The following media queries
+// work to force the idea filters panel
+// to collapse and sit at the top
+// once below a certain screen resolution
+@media (min-width: 769px) {
+	.ideas-container{
+		.idea-filters{
+			top: rem-calc(67);
+			bottom: 0;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.ideas-container{
+
+		// set the feed and meta
+		// down to no padding
+		.idea-feed,
+		.idea-meta{
+			padding-left: inherit;
+			padding-right: 0;
+		}
+		
+		// turns the filters panel
+		// into a drop down
+		.idea-filters{
+			position: relative;
+			width: 100%;
+			max-height: rem-calc(50);
+			border-color: red;
+			&.toggle{
+				max-height: rem-calc(500);
+			}
+		}
+
+	}
+}

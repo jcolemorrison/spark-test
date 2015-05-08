@@ -1,0 +1,79 @@
+<nav>
+
+	<!-- holds the mobile go -->
+	<h5 
+		ng-click="ideasCtrl.mobileFilters = !ideasCtrl.mobileFilters"
+		ng-class="{'toggle': ideasCtrl.mobileFilters}"
+		class="mobile-filters-toggle">
+		Filters <i class="fa fa-chevron-down"></i>
+	</h5>
+	
+	<div class="row">
+		<div class="xlarge-9 large-10 large-centered columns">
+			<h6>Filter by Status</h6>
+			<ul class="status-filters">
+				<li>
+					<input
+						ng-model="ideasCtrl.filterBy.status.All"
+						value="all"
+						type="checkbox"
+						id="allIdeas"
+						name="allIdeas"><label for="allIdeas">All Ideas</label><span class="status-count">{{ideasCtrl.filters.status.all}}</span>
+				</li>
+				<li>
+					<input
+						ng-model="ideasCtrl.filterBy.status.Progress"
+						value="Progress"
+						type="checkbox"
+						id="progressIdeas"
+						name="progressIdeas"><label for="progressIdeas">In Progress</label><span class="status-count">{{ideasCtrl.filters.status.Progress}}</span>
+				</li>
+				<li>
+					<input
+						ng-model="ideasCtrl.filterBy.status.New"
+						value="New"
+						type="checkbox"
+						id="newIdeas"
+						name="newIdeas"><label for="newIdeas">New</label><span class="status-count">{{ideasCtrl.filters.status.New}}</span>
+				</li>
+				<li>
+					<input
+						ng-model="ideasCtrl.filterBy.status.Accepted"
+						value="Accepted" 
+						type="checkbox" 
+						id="acceptedIdeas" 
+						name="acceptedIdeas"><label for="acceptedIdeas">Accepted</label><span class="status-count">{{ideasCtrl.filters.status.Accepted}}</span>
+				</li>
+				<li>
+					<input 
+						ng-model="ideasCtrl.filterBy.status.Completed"
+						value="Completed" 
+						type="checkbox" 
+						id="completeIdeas" 
+						name="completeIdeas"><label for="completeIdeas">Completed</label><span class="status-count">{{ideasCtrl.filters.status.Completed}}</span>
+				</li>
+			</ul>
+		</div>
+		<div class="xlarge-9 large-10 large-centered columns">
+			<h6>Filter by Office</h6>
+			<ul class="order-filters">
+				<li>
+					<input
+						ng-model="ideasCtrl.filterBy.locations.All"
+						type="checkbox" 
+						id="allOffices" 
+						name="allOffices"><label for="allOffices">All Offices</label><span class="status-count">{{ideasCtrl.filters.locations.total}}</span>
+				</li>
+				<li
+					ng-repeat="location in locations"
+				>
+					<input
+						ng-model="ideasCtrl.filterBy.locations[location.val]"
+						type="checkbox" 
+						id="{{location.val}}Order" 
+						name="{{location.val}}Order"><label for="{{location.val}}Order">{{location.name}}</label><span class="status-count">{{location.count}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

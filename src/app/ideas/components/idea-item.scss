@@ -1,0 +1,192 @@
+/**
+ * Styles for the idea item directive template (idea-item.tpl.html)
+ */
+
+.idea-item{
+	padding-left: rem-calc(55);
+	padding-right: rem-calc(200);
+	padding-bottom: rem-calc(30);
+	margin-top: rem-calc(30);
+	position: relative;
+	border-bottom: 1px solid $smoke;
+
+	.user-image{
+		position: absolute;
+		top: rem-calc(2);
+		left: 0;
+		margin: 0;
+	}
+
+	.idea-title{
+		color: $ppl-font-color-header;
+		font-size: rem-calc(18);
+		margin: 0 0 rem-calc(2) 0;
+	}
+
+	.idea-meta-info{
+		font-size: rem-calc(14);
+		color: $aluminum;
+		margin-bottom: rem-calc(10);
+		font-weight: 300;
+	}
+
+	.idea-description{
+		font-size: rem-calc(15);
+		color: $aluminum;
+		position: relative;
+		.idea-description-more{
+			position: absolute;
+			text-decoration: underline;
+			display: none;
+			right: 0;
+			top: rem-calc(47);
+		}
+	}
+
+	// idea social controls
+	.idea-social{
+		position: absolute;
+		top: rem-calc(2);
+		right: 0;
+
+		// override tooltip
+		.tooltip {
+			width: rem-calc(90) !important;
+			padding: rem-calc(6);
+			text-align: center;
+			@include radius($global-radius);
+			> .nub {
+				left: 50% !important;
+				margin-left: -2px;
+			}
+		}
+
+		.idea-comments{
+			color: $iron;
+			text-align: center;
+		}
+	}
+
+	// container to prevent
+	// weird flash in ios
+	.love-action{
+		width: rem-calc(90);
+		height: rem-calc(42);
+		overflow: hidden;
+		margin-bottom: rem-calc(20);
+	}
+
+	.idea-loved-it,
+	.idea-love-it{
+		padding: rem-calc(12) 0;
+		width: rem-calc(90);
+		font-weight: 700;
+		@include transition(none !important);
+		margin-bottom: 0;
+	}
+	
+	.idea-love-it{
+		color: $ppl-blue-dark;
+		background-color: $ppl-blue-light;
+		i{
+			margin-right: rem-calc(2);
+		}
+	}
+
+	.idea-loved-it{
+		color: white;
+		background-color: $ppl-blue-dark;
+	}
+
+	// mobile time marker
+	.mobile-idea-time{
+		font-size: rem-calc(14);
+		color: lighten($aluminum, 10%);
+		font-weight: 300;
+		position: absolute;
+		right: rem-calc(15);
+		i{
+			margin-right: rem-calc(4);
+		}
+	}
+}
+
+// tablet to medium
+@media (max-width: 1440px) {
+	.idea-item{
+		padding-right: rem-calc(110);
+	}
+}
+
+// tablet
+
+
+
+// mobile
+@media (max-width: 500px) {
+	.idea-item{
+		background-color: white;
+		padding: rem-calc(20);
+		padding-bottom: rem-calc(80);
+		margin-top: rem-calc(15);
+		width: 100%;
+
+		.idea-title{
+			margin-bottom: rem-calc(10);
+			padding-right: rem-calc(60);
+		}
+
+		.user-image{
+			top: auto;
+			bottom: rem-calc(15);
+			left: rem-calc(15);
+		}
+
+		.idea-meta-info{
+			position: absolute;
+			bottom: 0;
+			left: rem-calc(70);
+			.idea-time{
+				display: none;
+			}
+			.idea-author{
+				font-weight: 500;
+				color: $ppl-font-color-header;
+				display: block;
+				&.mobile-align{
+					margin-bottom: rem-calc(14);
+				}
+			}
+		}
+
+		.idea-description {
+			max-height: rem-calc(72);
+			overflow: hidden;
+			&.expand{
+				max-height: none;
+				.idea-description-more{
+					display: none;
+				}
+			}
+			.idea-description-more{
+				cursor: pointer;
+				display: block;
+			}
+		}
+
+		.idea-social{
+			position: relative;
+			margin-top: rem-calc(20);
+			// align controls
+			button,
+			div{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.love-action{
+				margin-bottom: 0;
+				margin-right: rem-calc(30);
+			}
+		}
+	}
+}

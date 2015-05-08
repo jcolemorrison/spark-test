@@ -1,0 +1,35 @@
+<section ng-controller="IdeasCtrl as ideasCtrl">
+	
+	<!-- topbar -->
+	<div ng-include="'app/components/navbar/navbar.html'"></div>
+	<!-- /topbar -->
+
+	<!-- main container -->
+	<div class="ideas-container">
+		
+		<!-- filter affix -->
+		<div
+			ng-class="{'toggle': ideasCtrl.mobileFilters }"
+			ng-include="'app/ideas/partials/idea-filters.html'"
+			class="idea-filters"></div>
+		<!-- /filter affix -->
+
+		<div class="row full-width">
+			<!-- ideas feed -->
+			<div class="large-9 columns idea-feed">
+				<div ng-include="'app/ideas/partials/idea-feed.html'"></div>
+			</div>
+			<!-- /ideas feed -->
+
+			<!-- meta sidebar -->
+			<div class="large-3 columns idea-meta">
+				<div ng-include="'app/ideas/partials/idea-meta.html'"></div>
+			</div>
+			<!-- /meta sidebar -->
+		</div>
+
+
+
+	</div>
+	<!-- /main container -->
+</section>

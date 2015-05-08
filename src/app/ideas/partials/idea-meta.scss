@@ -1,0 +1,158 @@
+/**
+ * Styles for the static meta sidebar (idea-meta.html)
+ */
+
+.idea-meta{
+	padding: rem-calc(30) 0 0 0;
+	.row{
+		margin: 0;
+	}
+
+	.columns{
+		padding-top: rem-calc(20);
+		padding-bottom: rem-calc(20);
+		// margin: 0;
+	}
+
+
+	.idea-meta-header{
+		font-size: rem-calc(16);
+		margin-top: 0;
+	}
+
+	// progress area
+	.progress {
+		background-color: white;
+		border: 1px solid $base;
+		padding: 0;
+		width: 70%;
+		position: relative;
+		margin: rem-calc(24) 0;
+		.meter{
+			background-color: $ppl-green;
+		}
+		.progress-percent{
+			color: lighten($ppl-font-color-body, 10%);
+			position: absolute;
+			font-size: rem-calc(13);
+			top: rem-calc(-2);
+			left: 100%;
+			margin-left: rem-calc(10);
+		}
+	}
+
+	.progress-checklist {
+		li{
+			font-size: rem-calc(11);
+			color: lighten($ppl-font-color-body, 10%);
+			margin-top: rem-calc(10);
+			&:first-child{
+				margin-top: 0;
+			}
+			&:first-child,
+			&:nth-child(2){
+				text-decoration: line-through;
+			}
+			span{
+				font-size: rem-calc(14);
+			}
+		}
+	}
+
+	// invite area
+	.invite-form{
+		margin: rem-calc(24) 0;
+		input,
+		button{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0;
+			border-radius: 2px;
+		}
+		input {
+			border-color: $base;
+			box-shadow: none;
+			width: 60%;
+		}
+		button{
+			background-color: transparent;
+			border: 1px solid $ppl-blue-dark;
+			color: $ppl-blue-dark;
+			padding: rem-calc(7) 0 rem-calc(6) 0;
+			width: 28%;
+		}
+	}
+
+	// welcome message
+	.welcome-message{
+		.idea-meta-header{
+			margin-bottom: rem-calc(20);
+		}
+		.message-content p{
+			color: lighten($ppl-font-color-body, 20%);
+			font-size: rem-calc(14);
+		}
+	}
+
+	// signature
+	.signature{
+		position: relative;
+		.user-image{
+			position: absolute;
+		}
+		h1{
+			font-family: $font-family-yellowtail;
+			font-size: rem-calc(26);
+			font-weight: light;
+			color: lighten($ppl-font-color-header, 5%);
+			padding-left: rem-calc(50);
+			em{
+				font-style: normal;
+				font-size: rem-calc(30);
+			}
+			small{
+				display: block;
+				margin-top: rem-calc(13);
+				font-size: rem-calc(13);
+				font-family: $body-font-family;
+				color: $aluminum;
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.idea-meta{
+		.row{
+			padding-left: rem-calc(30);
+			padding-right: rem-calc(30);
+			.small-6{
+			}
+
+		}
+		.invite-form{
+			input{
+				width: 70%;
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.idea-meta{
+		.row{
+			.small-6{
+				width: 100%;
+			}
+
+		}
+		.progress{
+			width: 90%;
+		}
+		.invite-form{
+			input{
+				width: 70%;
+			}
+		}
+	}
+}

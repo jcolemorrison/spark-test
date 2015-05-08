@@ -1,0 +1,26 @@
+{
+  "name": "ideasApp",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-animate": "~1.3.4",
+    "angular-cookies": "~1.3.4",
+    "angular-touch": "~1.3.4",
+    "angular-sanitize": "~1.3.4",
+    "jquery": "~2.1.1",
+    "restangular": "~1.4.0",
+    "angular-ui-router": "~0.2.13",
+    "foundation": "~5.5.1",
+    "angular-foundation": "~0.5.1",
+    "angular": "~1.3.4",
+    "fastclick": "~1.0.6",
+    "moment": "~2.10.2",
+    "angular-moment": "~0.10.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.4"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1",
+    "angular": "~1.3.4"
+  }
+}

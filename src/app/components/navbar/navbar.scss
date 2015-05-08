@@ -1,0 +1,154 @@
+/**
+ * Styles specifically for the main People Spark Nav Bar
+ */
+
+.spark-bar{
+	background-color: $jet;
+	z-index: 999;
+
+	#peoplespark-nav-logo{
+		// the width here
+		// will need to conform to the initial column
+		// on the 3rd side
+		padding: 0 rem-calc(30) 0 rem-calc(50);
+	}
+	
+	// the triple dash toggle
+	.menu-toggle{
+		a {
+			font-size: rem-calc(24);
+			padding-right: rem-calc(20);
+		}
+	}
+
+	.current-user{
+		height: rem-calc(67);
+
+		figure,
+		span{
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.user-name{
+			margin: 0 rem-calc(8);
+		}
+	}
+
+	
+	// the actual links of the navbar
+	.top-bar-section{
+		width: 100%;
+	
+		ul li{
+			position: relative;
+			a{
+				font-weight: 300;
+				letter-spacing: .5px;
+			}
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				height: 3px;
+				@include single-transition();
+			}
+			// Apply the hover link color when it has that class
+			&:hover:not(.has-form) > a {
+				background-color: none;
+				color: $ppl-blue;
+			}
+
+			// gives the nice
+			// white border above the 
+			// active element
+			&.active{
+				position: relative;
+				&::before {
+					background: white;
+					width: 40px;
+					left: 50%;
+					margin-left: -20px;
+				}
+				> a:hover{
+					background-color: none;
+				}
+			}
+		}
+	}
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+	background: $jet;
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+	.spark-bar{
+		#peoplespark-nav-logo{
+			padding: 0 rem-calc(10) 0 rem-calc(20);
+			img{
+				width: 120px;
+				height: auto;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.spark-bar{
+		#peoplespark-nav-logo{
+			padding: 0 5%;
+		}
+
+		.current-user{
+			.user-icon{
+				@include rotate(-90deg);
+			}
+		}
+
+		.top-bar-section{
+
+
+			ul li{
+
+				&::before {
+					top: 50%;
+					height: 20px;
+					margin-top: -10px;
+				}
+				// Apply the hover link color when it has that class
+				&:hover:not(.has-form) > a {
+					background-color: none;
+					color: $ppl-blue;
+				}
+
+				// gives the nice
+				// white border above the 
+				// active element
+				&.active{
+					position: relative;
+					&::before {
+						background: white;
+						width: 3px;
+						left: 0%;
+						margin-left: 0;
+					}
+					&:hover{
+						background-color: none;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.spark-bar{
+		.toggle-topbar.menu-icon a {
+			padding-right: rem-calc(16);
+		}
+	}
+}

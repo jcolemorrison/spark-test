@@ -20,7 +20,7 @@ Once downloaded, to build locally and watch, navigate to the root project folder
 
 This will serve it on your local ip so that you can view it from any device in your network (use `ifconfig` to find your address).
 
-To build an optimized version:
+To build an optimized version in a `dist` folder use:
 
 `$ gulp`
 
